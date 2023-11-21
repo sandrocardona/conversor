@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from 'react';
+//instalar e importar reactstrap
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      euros:0,
+      factor:1.1,
+    }
+  }
+  aumentar(){
+    let auxeuro = this.state.euros+1;
+    this.setState({euros:auxeuro})
+  }
+  disminuir(){
+    let auxeuro = this.state.euros-1;
+    this.setState({euros:auxeuro})
+  }
+  render (){
+    return(
+      <div className='App'>
+        {this.state.euros} Euros equivalen a {this.state.euros*this.state.factor} dólares<br></br>
+        <button onClick={()=>this.aumentar()}>+</button>
+        <button onClick={()=>this.disminuir()}>-</button>
+      </div>
+    )
+  }
 }
 
 export default App;

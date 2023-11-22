@@ -1,5 +1,6 @@
 import {Component} from 'react';
 //instalar e importar reactstrap
+//comment
 
 class App extends Component {
   constructor(props){
